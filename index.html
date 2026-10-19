@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ratnesh &amp; Romasha — Vadhupaksh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,400..600&amp;family=Great+Vibes&amp;family=Marcellus&amp;display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #FBF6EC; -webkit-font-smoothing: antialiased; }
+  a { color: #8E1B2B; text-decoration: none; }
+  a:hover { color: #B08A4A; }
+  @keyframes petalFall {
+    0%   { transform: translate3d(0,-12vh,0) rotate(0deg); opacity: 0; }
+    10%  { opacity: .8; }
+    50%  { transform: translate3d(26px,52vh,0) rotate(220deg); }
+    90%  { opacity: .65; }
+    100% { transform: translate3d(-18px,112vh,0) rotate(460deg); opacity: 0; }
+  }
+  @keyframes floatSoft { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes coverZoom {
+    0%   { transform: scale(1); opacity: 1; filter: blur(0px); }
+    45%  { transform: scale(1.3); opacity: 1; filter: blur(0px); }
+    100% { transform: scale(4.2); opacity: 0; filter: blur(7px); }
+  }
+  @keyframes pageIn {
+    0%   { transform: scale(1.1); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="position:relative;background:#FBF6EC;color:#4A3B33;font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden">
+
+  <div aria-hidden="true" style="position:fixed;inset:0;pointer-events:none;z-index:40;overflow:hidden">
+    <div style="position:absolute;left:4%;top:0;width:16px;height:16px;border-radius:50% 0 50% 50%;background:#E8B9BE;opacity:0.75;animation:petalFall 13s linear infinite"></div>
+    <div style="position:absolute;left:11%;top:0;width:12px;height:12px;border-radius:50% 0 50% 50%;background:#D9A443;opacity:0.6;animation:petalFall 17s linear infinite;animation-delay:2.5s"></div>
+    <div style="position:absolute;left:18%;top:0;width:19px;height:19px;border-radius:50% 0 50% 50%;background:#9B1B2E;opacity:0.4;animation:petalFall 15s linear infinite;animation-delay:5s"></div>
+    <div style="position:absolute;left:25%;top:0;width:13px;height:13px;border-radius:50% 0 50% 50%;background:#8FA98A;opacity:0.55;animation:petalFall 19s linear infinite;animation-delay:1.2s"></div>
+    <div style="position:absolute;left:32%;top:0;width:17px;height:17px;border-radius:50% 0 50% 50%;background:#E8B9BE;opacity:0.7;animation:petalFall 14s linear infinite;animation-delay:7s"></div>
+    <div style="position:absolute;left:39%;top:0;width:11px;height:11px;border-radius:50% 0 50% 50%;background:#D9A443;opacity:0.6;animation:petalFall 21s linear infinite;animation-delay:3.4s"></div>
+    <div style="position:absolute;left:46%;top:0;width:18px;height:18px;border-radius:50% 0 50% 50%;background:#9B1B2E;opacity:0.35;animation:petalFall 16s linear infinite;animation-delay:9s"></div>
+    <div style="position:absolute;left:52%;top:0;width:14px;height:14px;border-radius:50% 0 50% 50%;background:#8FA98A;opacity:0.5;animation:petalFall 18s linear infinite;animation-delay:4.2s"></div>
+    <div style="position:absolute;left:58%;top:0;width:13px;height:13px;border-radius:50% 0 50% 50%;background:#E8B9BE;opacity:0.65;animation:petalFall 12s linear infinite;animation-delay:6.6s"></div>
+    <div style="position:absolute;left:64%;top:0;width:16px;height:16px;border-radius:50% 0 50% 50%;background:#D9A443;opacity:0.55;animation:petalFall 20s linear infinite;animation-delay:8.3s"></div>
+    <div style="position:absolute;left:70%;top:0;width:12px;height:12px;border-radius:50% 0 50% 50%;background:#9B1B2E;opacity:0.4;animation:petalFall 15.5s linear infinite;animation-delay:1.8s"></div>
+    <div style="position:absolute;left:76%;top:0;width:19px;height:19px;border-radius:50% 0 50% 50%;background:#E8B9BE;opacity:0.7;animation:petalFall 13.5s linear infinite;animation-delay:10.5s"></div>
+    <div style="position:absolute;left:82%;top:0;width:14px;height:14px;border-radius:50% 0 50% 50%;background:#8FA98A;opacity:0.5;animation:petalFall 17.5s linear infinite;animation-delay:5.7s"></div>
+    <div style="position:absolute;left:88%;top:0;width:17px;height:17px;border-radius:50% 0 50% 50%;background:#D9A443;opacity:0.6;animation:petalFall 16.5s linear infinite;animation-delay:2.1s"></div>
+    <div style="position:absolute;left:94%;top:0;width:12px;height:12px;border-radius:50% 0 50% 50%;background:#E8B9BE;opacity:0.65;animation:petalFall 19.5s linear infinite;animation-delay:7.9s"></div>
+    <div style="position:absolute;left:8%;top:0;width:14px;height:14px;border-radius:50% 0 50% 50%;background:#9B1B2E;opacity:0.38;animation:petalFall 22s linear infinite;animation-delay:11.4s"></div>
+    <div style="position:absolute;left:22%;top:0;width:18px;height:18px;border-radius:50% 0 50% 50%;background:#E8B9BE;opacity:0.6;animation:petalFall 14.5s linear infinite;animation-delay:8.8s"></div>
+    <div style="position:absolute;left:43%;top:0;width:13px;height:13px;border-radius:50% 0 50% 50%;background:#8FA98A;opacity:0.5;animation:petalFall 20.5s linear infinite;animation-delay:12.6s"></div>
+    <div style="position:absolute;left:67%;top:0;width:20px;height:20px;border-radius:50% 0 50% 50%;background:#E8B9BE;opacity:0.55;animation:petalFall 15s linear infinite;animation-delay:13.9s"></div>
+    <div style="position:absolute;left:86%;top:0;width:13px;height:13px;border-radius:50% 0 50% 50%;background:#9B1B2E;opacity:0.4;animation:petalFall 18.5s linear infinite;animation-delay:10.1s"></div>
+  </div>
+
+  <audio ref="{{ audioRef }}" loop="{{ loopAudio }}" preload="auto" src="./assets/song.mp3"></audio>
+  <button sc-camel-on-click="{{ toggleMusic }}" aria-label="Toggle background music" style="position:fixed;right:16px;bottom:18px;z-index:60;width:50px;height:50px;border-radius:50%;border:1px solid rgba(242,226,196,.45);background:#7B1420;color:#F2E2C4;font-size:20px;cursor:pointer;box-shadow:0 8px 22px rgba(74,32,24,.32);display:flex;align-items:center;justify-content:center" style-hover="background:#9B1B2E">
+    <span style="position:relative;display:block;line-height:1">♪<span style="position:absolute;left:-7px;top:50%;width:24px;height:1.5px;background:currentColor;transform:rotate(-38deg);opacity:{{ muteLineOpacity }}"></span></span>
+  </button>
+
+  <sc-if value="{{ coverVisible }}" hint-placeholder-val="{{ true }}">
+    <div style="position:fixed;inset:0;z-index:50;transform-origin:center center;background:#FBF6EC;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0;animation:{{ coverExitAnim }}">
+      <button sc-camel-on-click="{{ openEnvelope }}" aria-label="Open the invitation" style="position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;background:transparent;cursor:pointer">
+        <img src="./assets/cover.png" alt="You're invited — Romasha &amp; Ratnesh" style="width:100%;height:100%;object-fit:cover;object-position:center;animation:floatSoft 6s ease-in-out infinite">
+      </button>
+    </div>
+  </sc-if>
+
+  <section data-reveal="" style="position:relative;padding:18px 0 0;text-align:center;background:#FBF6EC">
+    <div style="position:relative;max-width:860px;margin:0 auto;aspect-ratio:1024/1536;container-type:inline-size;background-image:url(&quot;./assets/arch-frame.png&quot;);background-size:100% 100%;background-repeat:no-repeat" data-arch="">
+      <div data-arch-top="" aria-hidden="true" style="display:none"></div>
+      <div data-arch-banner="" style="position:absolute;left:26.5%;right:26.5%;top:19.4%;height:3.5%;display:flex;align-items:center;justify-content:center;font-family:'Marcellus',serif;font-size:1.75cqw;letter-spacing:.1em;color:#8E1B2B;white-space:nowrap">|| OM SHREE GANESHAYA NAMAH ||</div>
+      <div data-arch-shloka="" style="position:absolute;left:26%;right:26%;top:27.8%;height:11%;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center">
+        <p style="margin:0;font-size:2.2cqw;line-height:1.55;color:#6E4B3A">मङ्गलम् भगवान विष्णुः मङ्गलम् गरुडध्वजः ।</p>
+        <p style="margin:0 0 .6cqw;font-size:2.2cqw;line-height:1.55;color:#6E4B3A">मङ्गलम् पुण्डरी काक्षः मङ्गलाय तनो हरिः ॥</p>
+        <p style="margin:0;font-style:italic;font-size:1.65cqw;letter-spacing:0;color:#9B1B2E;line-height:1.7;white-space:nowrap">MANGALAM BHAGWAN VISHNU · MANGALAM GARUDADHWAJAH<br>MANGALAM PUNDARIKAKSHAH · MANGALAYA TANO HARIH</p>
+      </div>
+      <div data-arch-body="" style="position:absolute;left:21%;right:21%;top:41%;bottom:34.5%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2cqw">
+        <p style="margin:0;width:100%;flex:0 0 auto;font-size:1.5cqw;line-height:1.45;color:#7A5B46">We request the honor of your gracious presence on the<br>auspicious occasion of the wedding celebration of</p>
+
+        <div style="display:flex;flex-direction:column;align-items:center;flex:0 0 auto">
+          <h2 style="margin:0;font-family:'Great Vibes',cursive;font-size:5.8cqw;font-weight:400;color:#9B1B2E;line-height:1.15">Romasha</h2>
+          <p style="margin:.5cqw 0 0;font-size:1.8cqw;line-height:1.4;color:#6E4B3A">D/o Mrs. Lata Gupta &amp; Mr. Arun Kumar Gupta</p>
+          <p style="margin:0;font-style:italic;font-size:1.55cqw;line-height:1.4;color:#8A6A52">Grand D/o of Smt. Rita Gupta &amp; Late Gulap Gupta</p>
+        </div>
+
+        <div style="font-family:'Great Vibes',cursive;font-size:2.9cqw;color:#B08A4A;line-height:1.2;flex:0 0 auto" data-weds="">weds</div>
+
+        <div style="display:flex;flex-direction:column;align-items:center;flex:0 0 auto">
+          <h2 style="margin:0;font-family:'Great Vibes',cursive;font-size:5.8cqw;font-weight:400;color:#9B1B2E;line-height:1.15">Ratnesh</h2>
+          <p style="margin:.5cqw 0 0;font-size:1.8cqw;line-height:1.4;color:#6E4B3A">S/o Mrs. Poonam Rai &amp; Mr. Upendra Kumar Rai</p>
+          <p style="margin:0;font-style:italic;font-size:1.55cqw;line-height:1.4;color:#8A6A52">Grand S/o Late Gulabi Devi &amp; Late Rajdev Rai</p>
+        </div>
+      </div>
+      <div data-arch-bottom="" aria-hidden="true" style="display:none"></div>
+    </div>
+  </section>
+
+  <section data-reveal="" style="position:relative;padding:64px 20px;text-align:center;background:#FDF9F1;border-top:1px solid rgba(176,138,74,.18)">
+    <h2 style="margin:0 0 10px;font-family:'Marcellus',serif;font-size:26px;letter-spacing:.3em;color:#8E1B2B;font-weight:400">SAVE THE DATE</h2>
+    <div style="font-size:18px;color:#D9A443;margin-bottom:28px">✿</div>
+    <div style="position:relative;max-width:460px;margin:0 auto;border:1px solid rgba(176,138,74,.4);border-radius:8px;background:#FFF9EF;overflow:hidden">
+      <div style="padding:34px 20px;display:flex;flex-direction:column;gap:8px">
+        <div style="font-family:'Marcellus',serif;font-size:13px;letter-spacing:.3em;color:#B08A4A">SAVE THE DATE</div>
+        <div style="font-family:'Marcellus',serif;font-size:27px;letter-spacing:.1em;color:#8E1B2B">25 NOVEMBER 2026</div>
+      </div>
+      <canvas ref="{{ scratchRef }}" style="position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:none;transition:opacity .8s ease"></canvas>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:460px;margin:26px auto 0">
+      <div style="background:#FFF9EF;border:1px solid rgba(176,138,74,.3);border-radius:8px;padding:16px 4px">
+        <div style="font-family:'Marcellus',serif;font-size:30px;color:#8E1B2B">{{ cdDays }}</div>
+        <div style="font-family:'Marcellus',serif;font-size:10px;letter-spacing:.2em;color:#A98C66;margin-top:6px">DAYS</div>
+      </div>
+      <div style="background:#FFF9EF;border:1px solid rgba(176,138,74,.3);border-radius:8px;padding:16px 4px">
+        <div style="font-family:'Marcellus',serif;font-size:30px;color:#8E1B2B">{{ cdHours }}</div>
+        <div style="font-family:'Marcellus',serif;font-size:10px;letter-spacing:.2em;color:#A98C66;margin-top:6px">HOURS</div>
+      </div>
+      <div style="background:#FFF9EF;border:1px solid rgba(176,138,74,.3);border-radius:8px;padding:16px 4px">
+        <div style="font-family:'Marcellus',serif;font-size:30px;color:#8E1B2B">{{ cdMinutes }}</div>
+        <div style="font-family:'Marcellus',serif;font-size:10px;letter-spacing:.2em;color:#A98C66;margin-top:6px">MINUTES</div>
+      </div>
+      <div style="background:#FFF9EF;border:1px solid rgba(176,138,74,.3);border-radius:8px;padding:16px 4px">
+        <div style="font-family:'Marcellus',serif;font-size:30px;color:#8E1B2B">{{ cdSeconds }}</div>
+        <div style="font-family:'Marcellus',serif;font-size:10px;letter-spacing:.2em;color:#A98C66;margin-top:6px">SECONDS</div>
+      </div>
+    </div>
+  </section>
+
+
+  <section data-reveal="" style="padding:64px 20px 72px">
+    <h2 style="margin:0 0 10px;text-align:center;font-family:'Great Vibes',cursive;font-size:52px;font-weight:400;color:#9B1B2E;line-height:1.2">Meet the Couple</h2>
+    <div style="text-align:center;font-size:18px;color:#D9A443;margin-bottom:40px">✿</div>
+
+    <div style="max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:48px">
+      <div style="display:flex;flex-direction:row-reverse;flex-wrap:wrap;align-items:center;gap:32px">
+        <div style="flex:1 1 240px;min-width:200px">
+          <div style="font-family:'Marcellus',serif;font-size:12px;letter-spacing:.3em;color:#B5476B">THE BRIDE</div>
+          <div style="font-family:'Great Vibes',cursive;font-size:44px;color:#9B1B2E;line-height:1.2;margin:2px 0 14px">Romasha</div>
+          <p style="margin:0;font-style:italic;font-size:19px;line-height:1.75;color:#7A5B46">"Romasha is a beautiful soul, compassionate at heart and full of love and warmth. A little queen at heart, she's a perfect blend of strength, kindness, cuteness and innocence."</p>
+        </div>
+        <div style="flex:0 1 280px;max-width:280px;min-width:180px;border-radius:18px;overflow:hidden;border:1px solid rgba(176,138,74,.45);box-shadow:0 10px 30px rgba(142,27,43,.10)">
+          <img src="./assets/bride-romasha.png" alt="Romasha" style="display:block;width:100%;height:auto">
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:32px">
+        <div style="flex:1 1 240px;min-width:200px;text-align:right">
+          <div style="font-family:'Marcellus',serif;font-size:12px;letter-spacing:.3em;color:#B5476B">THE GROOM</div>
+          <div style="font-family:'Great Vibes',cursive;font-size:44px;color:#9B1B2E;line-height:1.2;margin:2px 0 14px">Ratnesh</div>
+          <p style="margin:0;font-style:italic;font-size:19px;line-height:1.75;color:#7A5B46">"Ratnesh is a little shy, thoughtful by nature, and a dreamer with a love for adventure. Calm, caring, and quietly determined, he's a perfect blend of curiosity, ambition, and simplicity."</p>
+        </div>
+        <div style="flex:0 1 280px;max-width:280px;min-width:180px;border-radius:18px;overflow:hidden;border:1px solid rgba(176,138,74,.45);box-shadow:0 10px 30px rgba(142,27,43,.10)">
+          <img src="./assets/groom-ratnesh.png" alt="Ratnesh" style="display:block;width:100%;height:auto">
+        </div>
+      </div>
+
+      <div style="position:relative;width:100%;max-width:700px;box-sizing:border-box;margin:0 auto;border:1px solid rgba(176,138,74,.35);border-radius:14px;background:#FFF9EF;padding:34px 44px;text-align:center">
+        <div style="position:absolute;left:18px;top:6px;font-family:'Marcellus',serif;font-size:40px;color:#D9A443;line-height:1">&ldquo;</div>
+        <div style="position:absolute;right:18px;bottom:-6px;font-family:'Marcellus',serif;font-size:40px;color:#D9A443;line-height:1">&rdquo;</div>
+        <p style="margin:0;font-style:italic;font-size:20px;line-height:1.8;color:#9B1B2E">She carries warmth in her quiet strength, he carries dreams in his quiet calm. Between her kindness and his curiosity, they found their perfect match.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section data-reveal="" style="padding:8px 20px 72px">
+    <h2 style="margin:0 0 10px;text-align:center;font-family:'Great Vibes',cursive;font-size:52px;font-weight:400;color:#9B1B2E;line-height:1.2">Our Journey</h2>
+    <div style="text-align:center;font-size:18px;color:#D9A443;margin-bottom:28px">✿</div>
+    <p style="margin:0 auto 34px;max-width:560px;text-align:center;font-style:italic;font-size:19px;line-height:1.75;color:#7A5B46">From the tea gardens of Dibrugarh and the ghats of Azamgarh, two paths set out in different directions — and met in Noida. Miles apart, yet always headed to the same place.</p>
+    <div style="max-width:420px;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid rgba(176,138,74,.45);box-shadow:0 10px 30px rgba(142,27,43,.10)">
+      <img src="./assets/our-journey.png" alt="Dibrugarh to Noida to Azamgarh" style="display:block;width:100%;height:auto">
+    </div>
+  </section>
+
+  <section data-reveal="" style="padding:72px 20px;text-align:center">
+    <h2 style="margin:0 0 16px;font-family:'Great Vibes',cursive;font-size:60px;font-weight:500;color:#9B1B2E;line-height:1.2">Awaiting Your Noble Presence</h2>
+    <div style="font-size:18px;color:#D9A443;margin-bottom:24px">✿</div>
+    <p style="margin:0 auto 34px;max-width:520px;font-style:italic;font-size:19px;line-height:1.7;color:#7A5B46">Join us as we celebrate love, laughter, and the beginning of forever beautiful together.</p>
+    <div style="font-family:'Marcellus',serif;font-size:12px;letter-spacing:.3em;color:#B08A4A">WITH LOVE</div>
+    <div style="font-family:'Great Vibes',cursive;font-size:38px;color:#9B1B2E;margin:4px 0 20px">The Gupta Family</div>
+
+    <div>
+      <div style="font-family:'Marcellus',serif;font-size:12px;letter-spacing:.3em;color:#B5476B">LOVINGLY INVITED BY</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-style:italic;font-size:30px;letter-spacing:.02em;color:#8E1B2B;margin:8px 0 16px">Mrs. Lata Gupta &amp; Mr. Arun Kumar Gupta</div>
+      <p style="margin:0 0 22px;font-style:italic;font-size:14px;color:#8A6A52">Eagerly awaiting the pleasure of your presence and blessings.</p>
+      <div style="font-family:'Marcellus',serif;font-size:12px;letter-spacing:.3em;color:#B08A4A;margin-bottom:14px">R.S.V.P.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
+        <div style="padding:12px 22px;border:1px solid rgba(142,27,43,.4);border-radius:999px;font-family:'Marcellus',serif;font-size:13px;letter-spacing:.12em;color:#8E1B2B">MR. TARUN GUPTA</div>
+        <div style="padding:12px 22px;border:1px solid rgba(142,27,43,.4);border-radius:999px;font-family:'Marcellus',serif;font-size:13px;letter-spacing:.12em;color:#8E1B2B">MRS. BABITA GUPTA</div>
+        <div style="padding:12px 22px;border:1px solid rgba(142,27,43,.4);border-radius:999px;font-family:'Marcellus',serif;font-size:13px;letter-spacing:.12em;color:#8E1B2B">MR. HARSHIT GUPTA</div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;margin-top:18px;font-family:'Marcellus',serif;font-size:14px;letter-spacing:.06em;color:#8E1B2B">
+        <a href="tel:+919435030088">+91 94350 30088</a>
+        <a href="tel:+917086791301">+91 70867 91301</a>
+      </div>
+    </div>
+  </section>
+
+  <section data-reveal="" style="padding:38px 20px 76px;text-align:center;background:#FDF9F1;border-top:1px solid rgba(176,138,74,.18)">
+    <div style="font-family:'Marcellus',serif;font-size:12px;letter-spacing:.3em;color:#B08A4A">WHERE WE CELEBRATE</div>
+    <h2 style="margin:20px 0 14px;font-family:'Great Vibes',cursive;font-size:44px;font-weight:400;color:#9B1B2E;line-height:1.2">The Royale Palace Banquet by Khanak</h2>
+    <div style="font-size:18px;color:#D9A443;margin-bottom:22px">✿</div>
+    <p style="margin:0 0 22px;font-style:italic;font-size:22px;font-weight:700;color:#7A5B46">Reception of Barat · 25th November 2026 · 6:00 PM</p>
+    <p style="margin:0 0 6px;font-size:20px;color:#8E1B2B">📍 Near JBM Global School, Block-B, Sector-132, Noida (U.P.) 201304</p>
+    <p style="margin:0 0 26px;font-style:italic;font-size:14px;color:#A98C66">Where our forever begins.</p>
+    <div style="max-width:560px;margin:0 auto;border:1px solid rgba(176,138,74,.35);border-radius:10px;overflow:hidden;line-height:0">
+      <iframe title="Venue map" src="https://maps.google.com/maps?q=The+Royale+Palace+Banquet+by+Khanak+Sector+132+Noida&amp;output=embed" loading="lazy" style="width:100%;height:250px;border:0"></iframe>
+    </div>
+    <a href="{{ mapsUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:15px 34px;border-radius:999px;background:linear-gradient(180deg,#C79239,#A8761F);color:#FFF8E8;font-family:'Marcellus',serif;font-size:14px;letter-spacing:.16em;box-shadow:0 10px 24px rgba(140,100,30,.28)">➤ GET DIRECTIONS</a>
+  </section>
+
+  <footer data-reveal="" style="position:relative;padding:72px 20px 88px;text-align:center;background:linear-gradient(180deg,#5A0E1B,#3E0912);overflow:hidden">
+    <div style="font-family:'Marcellus',serif;font-size:12px;letter-spacing:.3em;color:#E6CB91">WITH LOVE</div>
+    <div style="font-family:'Great Vibes',cursive;font-size:54px;color:#F0D79B;margin:8px 0 14px;line-height:1.2">Romasha &amp; Ratnesh</div>
+    <div style="font-size:22px;color:#E05A5A;margin-bottom:16px">♥</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:19px;color:#F3E7C8">25th November 2026</div>
+    <div style="font-family:'Marcellus',serif;font-size:12px;letter-spacing:.24em;color:#D8BD86;margin-top:12px">#ROMASHAWEDSRATNESH</div>
+  </footer>
+</div>
+
+
+  <template id="__bundler_thumbnail">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <rect width="100" height="100" fill="#9B1B2E"/>
+      <text x="50" y="50" text-anchor="middle" dominant-baseline="central" font-family="Georgia,serif" font-size="26" fill="#FBF6EC">R &amp; R</text>
+    </svg>
+  </template>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;weddingDateTime&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;2026-11-25T18:00:00&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;mapsUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://maps.google.com/?q=The+Royale+Palace+Banquet+by+Khanak+Sector+132+Noida&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+class Component extends DCLogic {
+  state = { coverOpen: false, coverGone: false, muted: true, now: Date.now() };
+
+  componentDidMount() {
+    this.timer = setInterval(() => this.setState({ now: Date.now() }), 1000);
+    this.setupReveal();
+    this.setupScratch();
+  }
+  componentWillUnmount() { clearInterval(this.timer); }
+  componentDidUpdate() { this.setupScratch(); }
+
+  setupReveal() {
+    const root = this.root && this.root.current;
+    if (!root || this._obs) return;
+    const els = [...root.querySelectorAll('[data-reveal]')];
+    const show = (el) => { el.style.opacity = '1'; el.style.transform = 'none'; };
+    els.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(26px)';
+      el.style.transition = 'opacity .9s ease, transform .9s cubic-bezier(.2,.7,.3,1)';
+    });
+    const check = () => {
+      const h = window.innerHeight || 800;
+      els.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < h * 0.92 && r.bottom > 0) show(el);
+      });
+    };
+    this._obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { show(e.target); this._obs.unobserve(e.target); } });
+    }, { threshold: 0.05 });
+    els.forEach(el => this._obs.observe(el));
+    this._check = check;
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check, { passive: true });
+    check();
+    requestAnimationFrame(check);
+    setTimeout(() => els.forEach(show), 2500);
+  }
+
+  popConfetti(host, card) {
+    if (!host) return;
+    const r = host.getBoundingClientRect();
+    const cr = (card || host).getBoundingClientRect();
+    const W = r.width, H = r.height;
+    const ox = cr.left - r.left, oy = cr.bottom - r.top;
+    const cv = document.createElement('canvas');
+    cv.width = W * 2; cv.height = H * 2;
+    cv.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:5';
+    host.appendChild(cv);
+    const g = cv.getContext('2d');
+    g.scale(2, 2);
+    const colors = ['#9B1B2E', '#D9A443', '#F0D79B', '#E05A5A', '#B08A4A', '#FFF4DC'];
+    const bits = [];
+    const burst = (bx, by, dir) => {
+      for (let i = 0; i < 70; i++) {
+        const a = (-Math.PI / 2) + dir * (Math.random() * 0.75 + 0.12);
+        const sp = 4 + Math.random() * 7.5;
+        bits.push({
+          x: bx, y: by, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp,
+          w: 4 + Math.random() * 5, h: 7 + Math.random() * 7,
+          rot: Math.random() * Math.PI, vr: (Math.random() - 0.5) * 0.18,
+          c: colors[(Math.random() * colors.length) | 0], life: 0
+        });
+      }
+    };
+    burst(ox + 4, oy - 6, 1);
+    burst(ox + cr.width - 4, oy - 6, -1);
+    let t = 0;
+    const tick = () => {
+      t += 1;
+      g.clearRect(0, 0, W, H);
+      let alive = 0;
+      for (const b of bits) {
+        b.life += 1;
+        b.vy += 0.13; b.vx *= 0.985; b.vy *= 0.985;
+        b.x += b.vx; b.y += b.vy; b.rot += b.vr;
+        const o = Math.max(0, 1 - b.life / 230);
+        if (o <= 0) continue;
+        alive += 1;
+        g.save();
+        g.globalAlpha = o;
+        g.translate(b.x, b.y);
+        g.rotate(b.rot);
+        g.fillStyle = b.c;
+        g.fillRect(-b.w / 2, -b.h / 2, b.w, b.h * Math.abs(Math.cos(b.rot)));
+        g.restore();
+      }
+      if (alive && t < 460) requestAnimationFrame(tick);
+      else cv.remove();
+    };
+    requestAnimationFrame(tick);
+  }
+
+  setupScratch() {
+    const c = this.scratch && this.scratch.current;
+    if (!c || c.dataset.ready) return;
+    c.dataset.ready = '1';
+    const paint = () => {
+      const r = c.getBoundingClientRect();
+      if (!r.width) return;
+      c.width = r.width; c.height = r.height;
+      const ctx = c.getContext('2d');
+      const g = ctx.createLinearGradient(0, 0, r.width, r.height);
+      g.addColorStop(0, '#8E1B2B'); g.addColorStop(1, '#6E1020');
+      ctx.fillStyle = g; ctx.fillRect(0, 0, r.width, r.height);
+      ctx.fillStyle = '#F0D79B';
+      ctx.font = '600 22px Marcellus, Georgia, serif';
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.letterSpacing = '3px';
+      ctx.fillText('\u2726  SCRATCH TO REVEAL  \u2726', r.width / 2, r.height / 2);
+    };
+    paint();
+    window.addEventListener('resize', () => { if (!c.dataset.done) paint(); });
+
+    const ctx = c.getContext('2d');
+    let down = false, cleared = 0;
+    const erase = (x, y) => {
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.beginPath(); ctx.arc(x, y, 26, 0, Math.PI * 2); ctx.fill();
+      cleared += 1;
+      if (cleared > 34 && !c.dataset.done) {
+        c.dataset.done = '1';
+        c.style.opacity = '0';
+        setTimeout(() => { c.style.pointerEvents = 'none'; }, 800);
+        this.popConfetti(c.closest('[data-reveal]') || c.parentElement, c.parentElement);
+      }
+    };
+    const pos = (ev) => {
+      const r = c.getBoundingClientRect();
+      const p = ev.touches ? ev.touches[0] : ev;
+      return [p.clientX - r.left, p.clientY - r.top];
+    };
+    const start = (e) => { down = true; erase(...pos(e)); };
+    const move = (e) => { if (!down) return; e.preventDefault(); erase(...pos(e)); };
+    const end = () => { down = false; };
+    c.addEventListener('mousedown', start);
+    c.addEventListener('mousemove', move);
+    window.addEventListener('mouseup', end);
+    c.addEventListener('touchstart', start, { passive: true });
+    c.addEventListener('touchmove', move, { passive: false });
+    c.addEventListener('touchend', end);
+    c.addEventListener('click', () => { for (let i = 0; i < 40; i++) erase(Math.random() * c.width, Math.random() * c.height); });
+  }
+
+  two(n) { return String(Math.max(0, n)).padStart(2, '0'); }
+
+  renderVals() {
+    this.root = this.root || React.createRef();
+    this.audio = this.audio || React.createRef();
+    this.scratch = this.scratch || React.createRef();
+
+    const target = new Date(this.props.weddingDateTime || '2026-11-25T18:00:00').getTime();
+    const diff = Math.max(0, target - this.state.now);
+    const s = Math.floor(diff / 1000);
+
+    return {
+      rootRef: this.root,
+      audioRef: this.audio,
+      loopAudio: true,
+      scratchRef: this.scratch,
+      mapsUrl: this.props.mapsUrl || 'https://maps.google.com/?q=The+Royale+Palace+Banquet+by+Khanak+Sector+132+Noida',
+      muteLineOpacity: this.state.muted ? 1 : 0,
+      coverVisible: !this.state.coverGone,
+      coverExitAnim: this.state.coverOpen ? 'coverZoom 3.8s cubic-bezier(.42,0,.2,1) .15s forwards' : 'none',
+      openEnvelope: () => {
+        if (this.state.coverOpen) return;
+        this.setState({ coverOpen: true });
+        setTimeout(() => this.setState({ coverGone: true }), 3950);
+        const a = this.audio.current;
+        if (a) { a.loop = true; a.currentTime = 0; a.volume = 0.6; a.play().then(() => this.setState({ muted: false })).catch(() => {}); }
+      },
+      toggleMusic: () => {
+        const a = this.audio.current;
+        if (!a) { this.setState({ muted: !this.state.muted }); return; }
+        if (a.paused) { a.volume = 0.6; a.play().catch(() => {}); this.setState({ muted: false }); }
+        else { a.pause(); this.setState({ muted: true }); }
+      },
+      cdDays: this.two(Math.floor(s / 86400)),
+      cdHours: this.two(Math.floor(s / 3600) % 24),
+      cdMinutes: this.two(Math.floor(s / 60) % 60),
+      cdSeconds: this.two(s % 60)
+    };
+  }
+}
+
+</script>
+</body>
+</html>
