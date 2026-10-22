@@ -3,6 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Link preview (WhatsApp, Facebook, Telegram, etc.) -->
+<meta property="og:title" content="Romasha &amp; Ratnesh — Wedding Invitation">
+<meta property="og:description" content="You're invited to celebrate the wedding of Romasha and Ratnesh.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://romashawedsratnesh.in/">
+<meta property="og:image" content="https://romashawedsratnesh.in/preview.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Wedding invitation for Romasha and Ratnesh">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://romashawedsratnesh.in/preview.jpg">
+
 <script src="./support.js"></script>
 </head>
 <body>
@@ -244,9 +258,86 @@ class Component extends DCLogic {
     this.timer = setInterval(() => this.setState({ now: Date.now() }), 1000);
     this.setupReveal();
     this.setupScratch();
+    this.setupAutoScrollPause();
   }
-  componentWillUnmount() { clearInterval(this.timer); }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+    this.stopAutoScroll();
+    clearTimeout(this._asResume);
+    this.removeAutoScrollListeners();
+  }
   componentDidUpdate() { this.setupScratch(); }
+
+  /* ---------- AUTO SCROLL ---------- */
+  startAutoScroll() {
+    if (this._asRunning) return;
+    this._asRunning = true;
+    this._asHold = false;
+    this._asPos = window.scrollY;
+    this._asLast = null;
+    const SPEED = 45; // pixels per second: raise for faster, lower for slower
+    const step = (t) => {
+      if (!this._asRunning) return;
+      if (this._asLast == null) this._asLast = t;
+      const dt = Math.min(t - this._asLast, 100) / 1000;
+      this._asLast = t;
+      if (!this._asHold) {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        // if the guest scrolled manually, continue from where they are
+        if (Math.abs(window.scrollY - this._asPos) > 3) this._asPos = window.scrollY;
+        if (this._asPos < max) {
+          this._asPos = Math.min(max, this._asPos + SPEED * dt);
+          window.scrollTo(0, this._asPos);
+        }
+      }
+      this._asRaf = requestAnimationFrame(step);   // keeps running so it can resume after manual scrolling
+    };
+    this._asRaf = requestAnimationFrame(step);
+  }
+
+  stopAutoScroll() {
+    this._asRunning = false;
+    if (this._asRaf) cancelAnimationFrame(this._asRaf);
+  }
+
+  setupAutoScrollPause() {
+    if (this._asPause) return;
+    const hold = () => { this._asHold = true; clearTimeout(this._asResume); };
+    const scheduleResume = () => {
+      clearTimeout(this._asResume);
+      this._asResume = setTimeout(() => {          // resume 3 seconds after the guest stops
+        if (this._asDown) return;
+        this._asHold = false;
+        this._asPos = window.scrollY;
+      }, 3000);
+    };
+    // wheel / swipe / keys: pause, then resume 3s after the last one
+    this._asPause = () => {
+      if (!this._asRunning) return;
+      hold();
+      if (!this._asDown) scheduleResume();
+    };
+    // finger or mouse held down (e.g. scratching the card): stay paused until released
+    this._asDownH = () => {
+      this._asDown = true;
+      if (this._asRunning) hold();
+    };
+    this._asUpH = () => {
+      this._asDown = false;
+      if (this._asRunning) scheduleResume();
+    };
+    ['wheel','touchmove','keydown'].forEach(ev => window.addEventListener(ev, this._asPause, { passive: true }));
+    ['pointerdown','touchstart'].forEach(ev => window.addEventListener(ev, this._asDownH, { passive: true }));
+    ['pointerup','pointercancel','touchend','touchcancel'].forEach(ev => window.addEventListener(ev, this._asUpH, { passive: true }));
+  }
+
+  removeAutoScrollListeners() {
+    if (!this._asPause) return;
+    ['wheel','touchmove','keydown'].forEach(ev => window.removeEventListener(ev, this._asPause));
+    ['pointerdown','touchstart'].forEach(ev => window.removeEventListener(ev, this._asDownH));
+    ['pointerup','pointercancel','touchend','touchcancel'].forEach(ev => window.removeEventListener(ev, this._asUpH));
+  }
+  /* ---------- END AUTO SCROLL ---------- */
 
   setupReveal() {
     const root = this.root && this.root.current;
@@ -405,7 +496,10 @@ class Component extends DCLogic {
       openEnvelope: () => {
         if (this.state.coverOpen) return;
         this.setState({ coverOpen: true });
-        setTimeout(() => this.setState({ coverGone: true }), 3950);
+        setTimeout(() => {
+          this.setState({ coverGone: true });
+          setTimeout(() => this.startAutoScroll(), 1000);   // auto-scroll begins after the first tap opens the cover
+        }, 3950);
         const a = this.audio.current;
         if (a) { a.loop = true; a.currentTime = 0; a.volume = 0.6; a.play().then(() => this.setState({ muted: false })).catch(() => {}); }
       },
